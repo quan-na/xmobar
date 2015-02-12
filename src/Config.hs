@@ -43,6 +43,8 @@ import Plugins.MBox
 
 import Plugins.DateZone
 
+import Plugins.TextClock
+
 -- $config
 -- Configuration data type and default configuration
 
@@ -149,6 +151,6 @@ infixr :*:
 -- this function's type signature.
 runnableTypes :: Command :*: Monitors :*: Date :*: PipeReader :*: BufferedPipeReader :*: CommandReader :*: StdinReader :*: XMonadLog :*: EWMH :*: Kbd :*: Locks :*:
                  Mail :*: MBox :*:
-                 DateZone :*: MarqueePipeReader :*:
+                 DateZone :*: MarqueePipeReader :*: TextClock :*:
                  ()
 runnableTypes = undefined

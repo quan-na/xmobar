@@ -1,4 +1,4 @@
-module Plugins.TextClock (TextClock(...)) where
+module Plugins.TextClock (TextClock(..)) where
 
 import Plugins
 import System.IO
@@ -29,7 +29,7 @@ readNum 11 = "eleVen"
 readNum 12 = "tweLve"
 readNum 13 = "thirtEen"
 readNum 14 = "fouRteen"
-readNum 15 = "fifteeR"
+readNum 15 = "fifteeN"
 readNum 16 = "Sixteen"
 readNum 17 = "seveNteen"
 readNum 18 = "eIghteen"
@@ -42,13 +42,13 @@ readTen 4 = "foRty"
 readTen 5 = "fifTy"
 readTen 6 = "siXty"
 
-data ReadClock = ReadClock String Int
+data TextClock = TextClock String Int
     deriving (Read, Show)
 
-instance Exec ReadClock where
-    alias (ReadClock a _) = a
-    rate (ReadClock _ r) = r
-    run (ReadClock _ _) = do
+instance Exec TextClock where
+    alias (TextClock a _) = a
+    rate (TextClock _ r) = r
+    run (TextClock _ _) = do
         zt <- getZonedTime
         return (readTime (localTimeOfDay (zonedTimeToLocalTime zt)))
 
