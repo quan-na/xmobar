@@ -1,7 +1,6 @@
 module Plugins.TextClock (TextClock(..)) where
 
 import Plugins
-import System.IO
 import Data.Time.LocalTime
 
 readNum :: Int -> String
@@ -34,7 +33,7 @@ readNum 16 = "Sixteen"
 readNum 17 = "seveNteen"
 readNum 18 = "eIghteen"
 readNum 19 = "nineTeen"
-readNum n | n > 19 = (readTen (quot n 10)) ++ " " ++ (readNum (rem n 10))
+readNum n | n > 19 = (readTen (quot n 10)) ++ (if 0==(rem n 10) then "" else " " ++ (readNum (rem n 10)))
 
 readTen 2 = "tweNty"
 readTen 3 = "tHirty"
